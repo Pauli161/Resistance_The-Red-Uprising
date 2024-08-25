@@ -1,5 +1,3 @@
-Hier ist ein Vorschlag für eine README-Datei, die du für dein Spiel auf GitHub verwenden kannst:
-
 ---
 
 # Resistance: The Red Uprising
