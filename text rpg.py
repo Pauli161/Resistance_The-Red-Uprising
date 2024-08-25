@@ -1,3 +1,5 @@
+test
+
 def start_game():
     print("Willkommen zu 'Resistance: The Red Uprising'")
     print("Du bist Rick, ein junger Antifaschist in Deutschland im Jahr 2025.")
