@@ -71,5 +71,3 @@ Beiträge zum Projekt sind willkommen! Wenn du Ideen für neue Features hast ode
 Dieses Projekt steht unter der MIT-Lizenz. Weitere Informationen findest du in der [LICENSE](LICENSE)-Datei.
 
 ---
-
-**Hinweis:** Ersetze `https://github.com/username/resistance-the-red-uprising.git` mit der tatsächlichen URL deines GitHub-Repositories. Diese README-Datei bietet eine klare und strukturierte Anleitung für Benutzer und Entwickler, die das Spiel nutzen oder zum Projekt beitragen möchten.
