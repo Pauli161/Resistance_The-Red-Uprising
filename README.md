@@ -13,7 +13,7 @@ Um das Spiel auf deinem lokalen Rechner auszuführen, folge diesen Schritten:
 1. **Clone das Repository:**
 
    ```bash
-   git clone [https://github.com/Pauli161/161rpg]
+   git clone [https://github.com/Pauli161/Resistance_The-Red-Uprising]
    cd resistance-the-red-uprising
    ```
 
