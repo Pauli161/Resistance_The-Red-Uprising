@@ -1,3 +1,4 @@
+
 import time
 
 class Scene:
@@ -7,12 +8,12 @@ class Scene:
 
     def show(self, state):
         print(self.description)
-        for key, _ in self.choices.items():
-            print(f"{key}. {self.choices[key]}")  # Text der Auswahl anzeigen
+        for index, choice in enumerate(self.choices, start=1):
+            print(f"{index}. {choice['text']}")
 
         choice = input("> ").strip()
-        next_scene = self.choices.get(choice)
-        if next_scene:
+        if choice.isdigit() and 1 <= int(choice) <= len(self.choices):
+            next_scene = self.choices[int(choice) - 1]["next_scene"]
             state.update_progress(next_scene)
         else:
             print("Ungültige Wahl, bitte versuche es erneut.")
