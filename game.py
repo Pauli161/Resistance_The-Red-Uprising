@@ -1,6 +1,7 @@
 import json
 from state import State
 from scene import Scene
+import time  # <-- Diesen Import hinzufügen
 
 class Game:
     def __init__(self):
