@@ -1,6 +1,6 @@
 class State:
     def __init__(self):
-        self.progress = "intro"
+        self.progress = "Intro"
         self.variables = {}
 
     def update_progress(self, progress):
