@@ -1,7 +1,6 @@
 import json
 from state import State
 from scene import Scene
-import time  # <-- Diesen Import hinzufügen
 
 class Game:
     def __init__(self):
@@ -9,7 +8,7 @@ class Game:
         self.scenes = self.load_scenes()
 
     def load_scenes(self):
-        with open('scenes/scenes.json') as f:
+        with open('scenes/scenes.json', encoding='utf-8') as f:
             scenes_data = json.load(f)
         
         scenes = {}
