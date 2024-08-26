@@ -686,19 +686,6 @@
             }
         ]
     },
-    "coordinated_actions": {
-        "description": "Du organisierst koordinierte Aktionen in mehreren Städten gleichzeitig. Diese Aktionen führen zu einer Welle der Unterstützung in der Bevölkerung.",
-        "choices": [
-            {
-                "text": "Plane weitere koordinierte Aktionen, um die Bewegung weiter zu stärken.",
-                "next_scene": "more_coordinated_actions"
-            },
-            {
-                "text": "Konzentriere dich darauf, die erzielten Erfolge zu konsolidieren.",
-                "next_scene": "consolidate_success"
-            }
-        ]
-    },
     "expand_debate": {
         "description": "Du lädst weitere prominente Vertreter ein, um die Diskussion zu erweitern. Die Debatte erreicht ein noch größeres Publikum und gewinnt an Tiefe und Einfluss.",
         "choices": [
