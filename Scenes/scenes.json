@@ -1,18 +1,833 @@
 {
     "intro": {
-        "description": "Es ist ein düsterer Tag in deiner Heimatstadt. Die Rechte hat immer mehr Macht gewonnen, und du weißt, dass du handeln musst.\n\nWas möchtest du tun?",
-        "choices": {
-            "1": "Gehe zu dem Treffen.",
-            "2": "Gehe nach Hause und denke darüber nach, was du tun solltest."
-        }
+        "description": "Es ist ein düsterer Tag in deiner Heimatstadt. Die Rechte hat immer mehr Macht gewonnen, und du weißt, dass du handeln musst. Deine Freunde haben dich kontaktiert. Sie wollen sich heute Abend treffen, um eine Protestaktion zu planen.",
+        "choices": [
+            {
+                "text": "Gehe zu dem Treffen.",
+                "next_scene": "meeting"
+            },
+            {
+                "text": "Gehe nach Hause und denke darüber nach, was du tun solltest.",
+                "next_scene": "home"
+            }
+        ]
+    },
+    "home": {
+        "description": "Du gehst nach Hause, setzt dich an deinen Schreibtisch und denkst nach. Was kannst du tun, um gegen die Rechten zu kämpfen? Plötzlich klopft es an deiner Tür. Es ist dein Nachbar, ein Mitglied der rechten Bewegung. Er will mit dir reden.",
+        "choices": [
+            {
+                "text": "Öffne die Tür und höre ihm zu.",
+                "next_scene": "talk_to_neighbor"
+            },
+            {
+                "text": "Ignoriere das Klopfen und bereite dich auf das Treffen am nächsten Tag vor.",
+                "next_scene": "prepare_for_meeting"
+            }
+        ]
+    },
+    "talk_to_neighbor": {
+        "description": "Du öffnest die Tür und lässt deinen Nachbarn herein. Er beginnt, über die rechte Ideologie zu sprechen und versucht, dich zu überzeugen, dass er im Recht ist.",
+        "choices": [
+            {
+                "text": "Versuche, ihn zu überzeugen, dass die rechte Ideologie gefährlich ist.",
+                "next_scene": "argue_with_neighbor"
+            },
+            {
+                "text": "Schlage die Tür zu und gehe zurück zu deinen Überlegungen.",
+                "next_scene": "ignore_neighbor"
+            }
+        ]
+    },
+    "argue_with_neighbor": {
+        "description": "Dein Nachbar beginnt mit rechter Propaganda: 'Die Zuwanderer nehmen uns die Jobs weg und zerstören unsere Kultur!'",
+        "choices": [
+            {
+                "text": "Das stimmt nicht. Studien zeigen, dass Zuwanderung die Wirtschaft stärkt und unsere Gesellschaft vielfältiger macht.",
+                "next_scene": "next_argument"
+            },
+            {
+                "text": "Das ist nur eine Ausrede, um Angst zu schüren. Die wahren Probleme liegen in der Ungleichheit und Korruption in unserem Land.",
+                "next_scene": "next_argument"
+            }
+        ]
+    },
+    "next_argument": {
+        "description": "Dein Nachbar setzt seine Propaganda fort: 'Wir müssen die Kontrolle über unser Land zurückgewinnen. Diese Regierung hat uns verraten!'",
+        "choices": [
+            {
+                "text": "Die Demokratie lebt vom Austausch und der Zusammenarbeit. Extreme Maßnahmen führen nur zu mehr Spaltung und Chaos.",
+                "next_scene": "convince_neighbor"
+            },
+            {
+                "text": "Es geht nicht darum, das Land zu kontrollieren, sondern darum, eine gerechte Gesellschaft für alle zu schaffen.",
+                "next_scene": "convince_neighbor"
+            }
+        ]
+    },
+    "convince_neighbor": {
+        "description": "Du schaffst es, deinen Nachbarn zum Nachdenken zu bringen. Er beginnt, an seiner Ideologie zu zweifeln. Am nächsten Tag schließt er sich überraschenderweise eurer Gegendemonstration an und hilft, weitere Leute zu überzeugen.",
+        "choices": [
+            {
+                "text": "--- Spiel Ende: Erfolg ---",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "ignore_neighbor": {
+        "description": "Du schlägst die Tür zu und ignorierst deinen Nachbarn. Du verbringst den Rest des Abends damit, dich auf das Treffen vorzubereiten. Doch am nächsten Tag erfährst du, dass dein Nachbar sich der rechten Miliz angeschlossen hat. Er wird eine der treibenden Kräfte hinter der nächsten Aktion der Rechten sein.",
+        "choices": [
+            {
+                "text": "--- Spiel Ende: Konsequenzen ---",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "prepare_for_meeting": {
+        "description": "Du ignorierst das Klopfen und bereitest dich auf das Treffen am nächsten Tag vor. Als du am nächsten Tag ankommst, ist die Gruppe bereits in Aktion. Du schließt dich ihnen an und bereitest eine große Protestaktion vor.",
+        "choices": [
+            {
+                "text": "--- Spiel Ende: Vorbereitung ---",
+                "next_scene": "restart"
+            }
+        ]
     },
     "meeting": {
-        "description": "Du betrittst einen kleinen, verlassenen Lagerraum. Ein paar Dutzend Leute haben sich hier versammelt, alle entschlossen, gegen die Rechte zu kämpfen.\n\nWas möchtest du tun?",
-        "choices": {
-            "1": "Schlage vor, eine friedliche Gegendemonstration zu organisieren.",
-            "2": "Schlage vor, die Kundgebung der Rechten zu sabotieren.",
-            "3": "Schlage vor, die Öffentlichkeit durch Medienarbeit und soziale Netzwerke zu mobilisieren."
-        }
+        "description": "Du betrittst einen kleinen, verlassenen Lagerraum. Ein paar Dutzend Leute haben sich hier versammelt, alle entschlossen, gegen die Rechte zu kämpfen. Der Anführer der Gruppe, Anna, begrüßt dich. 'Wir müssen handeln', sagt sie. 'Die Rechte plant morgen eine große Kundgebung in der Stadt. Wir können das nicht zulassen.'",
+        "choices": [
+            {
+                "text": "Schlage vor, eine friedliche Gegendemonstration zu organisieren.",
+                "next_scene": "peaceful_protest"
+            },
+            {
+                "text": "Schlage vor, die Kundgebung der Rechten zu sabotieren.",
+                "next_scene": "sabotage"
+            },
+            {
+                "text": "Schlage vor, die Öffentlichkeit durch Medienarbeit und soziale Netzwerke zu mobilisieren.",
+                "next_scene": "media_campaign"
+            }
+        ]
+    },
+    "peaceful_protest": {
+        "description": "Du schlägst vor, eine friedliche Gegendemonstration zu organisieren. Die Gruppe stimmt zu. Am nächsten Tag versammeln sich Hunderte von Menschen in der Stadt. Es ist eine kraftvolle, aber friedliche Demonstration. Die Rechte reagiert mit Gewalt, aber eure Botschaft wird in den Medien weit verbreitet. Viele Menschen beginnen, die Bewegung zu unterstützen.",
+        "choices": [
+            {
+                "text": "Versuche, mit der Mitte zu verhandeln, um mehr Unterstützung zu erhalten.",
+                "next_scene": "negotiate_with_center"
+            },
+            {
+                "text": "Plane eine weitere, größere Demonstration in der Hauptstadt.",
+                "next_scene": "larger_protest"
+            }
+        ]
+    },
+    "sabotage": {
+        "description": "Du schlägst vor, die Kundgebung der Rechten zu sabotieren. Die Gruppe ist sich unsicher, aber schließlich stimmen sie zu. In der Nacht dringt ihr in das Lagerhaus ein, wo die Rechten ihre Ausrüstung aufbewahren. Ihr zerstört alles, was ihr finden könnt. Am nächsten Tag ist die Kundgebung ein Desaster. Doch die Rechten machen Jagd auf die Verantwortlichen. Eure Aktion hat sie nur noch wütender gemacht, und die Gewalt eskaliert weiter.",
+        "choices": [
+            {
+                "text": "Verstecke dich und plane deinen nächsten Schritt.",
+                "next_scene": "hide_and_plan"
+            },
+            {
+                "text": "Stelle dich der Rechten und versuche, ihre Pläne öffentlich zu entlarven.",
+                "next_scene": "expose_right"
+            }
+        ]
+    },
+    "media_campaign": {
+        "description": "Du schlägst vor, eine Medienkampagne zu starten, um die Öffentlichkeit zu mobilisieren. Die Gruppe stimmt zu, und ihr beginnt, eure Botschaft über soziale Netzwerke und unabhängige Medien zu verbreiten. Die Kampagne wird viral, und immer mehr Menschen beginnen, sich der Bewegung anzuschließen.",
+        "choices": [
+            {
+                "text": "Versuche, durch Crowdfunding Gelder für eure Aktionen zu sammeln.",
+                "next_scene": "crowdfunding"
+            },
+            {
+                "text": "Organisiere eine Online-Debatte mit einem prominenten Vertreter der Rechten.",
+                "next_scene": "online_debate"
+            }
+        ]
+    },
+    "negotiate_with_center": {
+        "description": "Du triffst dich mit Vertretern der Mitte, um sie davon zu überzeugen, eure Bewegung zu unterstützen. Sie sind vorsichtig, aber sie sehen die Notwendigkeit, gemeinsam gegen die Rechte vorzugehen. Nach langen Diskussionen erklären sie sich bereit, eine gemeinsame Erklärung gegen die rechte Gewalt abzugeben.",
+        "choices": [
+            {
+                "text": "Suche nach weiteren potenziellen Verbündeten, um die Allianz zu erweitern.",
+                "next_scene": "recruit_allies"
+            },
+            {
+                "text": "Organisiere eine groß angelegte Kampagne, um die Mitte stärker in die Bewegung einzubinden.",
+                "next_scene": "middle_campaign"
+            }
+        ]
+    },
+    "crowdfunding": {
+        "description": "Du startest eine Crowdfunding-Kampagne, um Gelder für eure Aktionen zu sammeln. Die Kampagne ist ein Erfolg, und ihr habt nun die Mittel, um größere Aktionen zu planen. Mit den neuen Ressourcen beginnt ihr, professioneller zu arbeiten und größere Aktionen zu organisieren.",
+        "choices": [
+            {
+                "text": "Finanziere friedliche Demonstrationen und Aufklärungskampagnen.",
+                "next_scene": "fund_peaceful_protests"
+            },
+            {
+                "text": "Investiere in verdeckte Operationen, um die rechte Bewegung zu unterminieren.",
+                "next_scene": "fund_covert_operations"
+            }
+        ]
+    },
+    "recruit_allies": {
+        "description": "Du beginnst, weitere potenzielle Verbündete aus verschiedenen politischen und sozialen Gruppen zu rekrutieren. Dabei stößt du auf verschiedene Herausforderungen und Konflikte.",
+        "choices": [
+            {
+                "text": "Versuche, zwischen den unterschiedlichen Gruppen zu vermitteln.",
+                "next_scene": "mediate_groups"
+            },
+            {
+                "text": "Konzentriere dich auf die stärksten Gruppen und lass die schwächeren beiseite.",
+                "next_scene": "focus_on_strong_groups"
+            }
+        ]
+    },
+    "middle_campaign": {
+        "description": "Du organisierst eine groß angelegte Kampagne, um die Mitte stärker in die Bewegung einzubinden. Die Kampagne ist erfolgreich, und immer mehr Menschen schließen sich der Bewegung an.",
+        "choices": [
+            {
+                "text": "Nutze die Dynamik, um eine nationale Bewegung zu starten.",
+                "next_scene": "national_movement"
+            },
+            {
+                "text": "Setze auf lokale Aktionen, um die Unterstützung weiter zu festigen.",
+                "next_scene": "local_actions"
+            }
+        ]
+    },
+    "national_movement": {
+        "description": "Du entscheidest dich, eine landesweite Bewegung zu starten. Die Bewegung gewinnt schnell an Unterstützung, und immer mehr Menschen schließen sich an. Die rechte Bewegung wird dadurch erheblich geschwächt.",
+        "choices": [
+            {
+                "text": "Organisiere landesweite Aktionen und Demonstrationen, um den Druck aufrechtzuerhalten.",
+                "next_scene": "nationwide_actions"
+            },
+            {
+                "text": "Konzentriere dich auf den Aufbau einer politischen Organisation, um langfristige Ziele zu erreichen.",
+                "next_scene": "political_organization"
+            }
+        ]
+    },
+    "nationwide_actions": {
+        "description": "Du organisierst eine Reihe landesweiter Aktionen und Demonstrationen, die in allen großen Städten stattfinden. Die Aktionen üben großen Druck auf die Regierung und die rechte Bewegung aus.",
+        "choices": [
+            {
+                "text": "Setze die landesweiten Aktionen fort, um den Druck zu erhöhen.",
+                "next_scene": "continue_nationwide_actions"
+            },
+            {
+                "text": "Konsolidiere die erzielten Erfolge und baue eine stärkere Basis auf.",
+                "next_scene": "consolidate_national_success"
+            }
+        ]
+    },
+    "consolidate_national_success": {
+        "description": "Du entscheidest dich, die nationalen Erfolge zu konsolidieren und das Fundament der Bewegung weiter zu stärken. Durch gezielte Maßnahmen stellst du sicher, dass die Bewegung auch langfristig Bestand hat.",
+        "choices": [
+            {
+                "text": "Fokussiere dich auf den Aufbau langfristiger Allianzen mit anderen Bewegungen.",
+                "next_scene": "long_term_alliances"
+            },
+            {
+                "text": "Entwickle Strategien, um die erzielten Erfolge politisch zu verankern.",
+                "next_scene": "political_entrenchment"
+            }
+        ]
+    },
+    "long_term_alliances": {
+        "description": "Du entscheidest dich, langfristige Allianzen mit anderen sozialen und politischen Bewegungen aufzubauen. Diese Allianzen helfen, die Bewegung zu festigen und ihre Reichweite zu vergrößern.",
+        "choices": [
+            {
+                "text": "Arbeite an gemeinsamen Projekten, um das Vertrauen und die Zusammenarbeit zu stärken.",
+                "next_scene": "joint_projects"
+            },
+            {
+                "text": "Entwickle gemeinsame politische Plattformen, um die Ziele der Allianz durchzusetzen.",
+                "next_scene": "shared_political_platforms"
+            }
+        ]
+    },
+    "political_entrenchment": {
+        "description": "Du entwickelst Strategien, um die erzielten Erfolge politisch zu verankern. Diese Strategien umfassen die Einflussnahme auf politische Prozesse und die Etablierung von Vertretern der Bewegung in Schlüsselpositionen.",
+        "choices": [
+            {
+                "text": "Fokussiere dich auf die Wahlkampagne, um mehr Vertreter in politische Ämter zu bringen.",
+                "next_scene": "election_campaign"
+            },
+            {
+                "text": "Entwickle Lobbystrategien, um politischen Einfluss zu gewinnen.",
+                "next_scene": "lobby_strategies"
+            }
+        ]
+    },
+    "continue_nationwide_actions": {
+        "description": "Du entscheidest dich, die landesweiten Aktionen fortzusetzen, um den Druck auf die rechte Bewegung und die Regierung weiter zu erhöhen. Die Aktionen werden immer größer und ziehen immer mehr Menschen an.",
+        "choices": [
+            {
+                "text": "Starte eine massive landesweite Protestwelle.",
+                "next_scene": "massive_protest_wave"
+            },
+            {
+                "text": "Baue eine Allianz mit anderen sozialen Bewegungen auf, um die Wirkung zu verstärken.",
+                "next_scene": "alliance_with_movements"
+            }
+        ]
+    },
+    "massive_protest_wave": {
+        "description": "Du organisierst eine massive landesweite Protestwelle, die in allen großen Städten gleichzeitig stattfindet. Die Proteste haben eine enorme mediale Wirkung und üben großen Druck auf die Regierung aus.",
+        "choices": [
+            {
+                "text": "--- Spiel Ende: Erfolgreicher Protest ---",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "alliance_with_movements": {
+        "description": "Du entscheidest dich, eine Allianz mit anderen sozialen Bewegungen aufzubauen. Diese Allianz stärkt die Bewegung erheblich und verbreitet eure Botschaft noch weiter.",
+        "choices": [
+            {
+                "text": "Organisiere gemeinsame Aktionen, um die Rechte weiter zu schwächen.",
+                "next_scene": "joint_actions"
+            },
+            {
+                "text": "Nutze die Allianz, um politische Forderungen aufzustellen und Veränderungen durchzusetzen.",
+                "next_scene": "political_changes"
+            }
+        ]
+    },
+    "political_organization": {
+        "description": "Du entscheidest dich, eine politische Organisation aufzubauen, die langfristige Ziele verfolgen kann. Diese Organisation wird zur zentralen Kraft der Bewegung und entwickelt Strategien für zukünftige politische Kämpfe.",
+        "choices": [
+            {
+                "text": "Fokussiere dich auf den Aufbau einer breiten Mitgliederbasis.",
+                "next_scene": "build_membership_base"
+            },
+            {
+                "text": "Entwickle eine klare politische Agenda und beginne mit der Umsetzung.",
+                "next_scene": "implement_agenda"
+            }
+        ]
+    },
+    "local_actions": {
+        "description": "Du entscheidest dich, lokale Aktionen zu organisieren, um die Unterstützung auf Gemeindeebene zu festigen. Durch kleinere, gezielte Aktionen in verschiedenen Regionen schaffst du es, eine breite Basis an Unterstützern aufzubauen. Die rechte Bewegung versucht, eure Bemühungen zu untergraben, aber die starke lokale Verankerung eurer Bewegung macht es schwer, euch zu stoppen.",
+        "choices": [
+            {
+                "text": "Baue ein Netzwerk lokaler Gruppen auf, um die Bewegung noch weiter zu verbreiten.",
+                "next_scene": "build_local_network"
+            },
+            {
+                "text": "Organisiere eine Serie von Kooperationsprojekten mit anderen sozialen Bewegungen, um eure Basis zu erweitern.",
+                "next_scene": "cooperate_with_movements"
+            }
+        ]
+    },
+    "build_local_network": {
+        "description": "Du konzentrierst dich darauf, ein starkes Netzwerk lokaler Gruppen aufzubauen. Diese Gruppen arbeiten eng zusammen, tauschen Informationen aus und koordinieren ihre Aktionen.",
+        "choices": [
+            {
+                "text": "Organisiere ein landesweites Treffen der lokalen Gruppen, um die Koordination zu verbessern.",
+                "next_scene": "national_meeting"
+            },
+            {
+                "text": "Entwickle gemeinsame Aktionspläne, um die Schlagkraft des Netzwerks zu erhöhen.",
+                "next_scene": "joint_action_plans"
+            }
+        ]
+    },
+    "joint_action_plans": {
+        "description": "Du entwickelst zusammen mit den lokalen Gruppen gemeinsame Aktionspläne. Diese Pläne helfen dabei, die Schlagkraft des Netzwerks zu erhöhen und die Bewegung weiter zu stärken.",
+        "choices": [
+            {
+                "text": "Plane eine großangelegte Aktion auf nationaler Ebene.",
+                "next_scene": "national_action"
+            },
+            {
+                "text": "Fokussiere dich auf gezielte, lokale Aktionen.",
+                "next_scene": "local_targeted_actions"
+            }
+        ]
+    },
+    "national_meeting": {
+        "description": "Du organisierst ein landesweites Treffen der lokalen Gruppen. Auf diesem Treffen werden Ideen ausgetauscht und Strategien entwickelt, um die Koordination zu verbessern.",
+        "choices": [
+            {
+                "text": "Entwickle einen nationalen Aktionsplan.",
+                "next_scene": "national_action_plan"
+            },
+            {
+                "text": "Konzentriere dich auf die Verbesserung der Kommunikation zwischen den Gruppen.",
+                "next_scene": "improve_communication"
+            }
+        ]
+    },
+    "more_coordinated_actions": {
+        "description": "Du planst und führst weitere koordinierte Aktionen in mehreren Städten durch. Diese Aktionen führen zu einer stärkeren Mobilisierung der Bevölkerung und schwächen die rechte Bewegung weiter.",
+        "choices": [
+            {
+                "text": "Baue auf diesen Erfolgen auf und plane eine noch größere Aktion.",
+                "next_scene": "bigger_action"
+            },
+            {
+                "text": "Konsolidiere die erreichten Erfolge und baue das Netzwerk weiter aus.",
+                "next_scene": "consolidate_network"
+            }
+        ]
+    },
+    "consolidate_success": {
+        "description": "Du entscheidest dich, die erzielten Erfolge zu konsolidieren und das Fundament der Bewegung zu stärken. Durch gezielte Maßnahmen stellst du sicher, dass die Bewegung auch langfristig Bestand hat.",
+        "choices": [
+            {
+                "text": "Stärke die Organisation durch strukturelle Verbesserungen.",
+                "next_scene": "structural_improvements"
+            },
+            {
+                "text": "Fokussiere dich auf die Rekrutierung und Schulung neuer Mitglieder.",
+                "next_scene": "recruit_and_train"
+            }
+        ]
+    },
+    "protect_communications": {
+        "description": "Du verstärkst den Schutz der Kommunikationskanäle, um die Sicherheit der Bewegung zu gewährleisten. Diese Maßnahme schützt vor Überwachung und gibt der Bewegung eine stabile Grundlage für weitere Aktionen.",
+        "choices": [
+            {
+                "text": "Nutze die sicheren Kanäle, um komplexe, koordinierte Aktionen zu planen.",
+                "next_scene": "complex_coordinated_actions"
+            },
+            {
+                "text": "Schaffe zusätzliche Sicherheitsmaßnahmen, um die Kanäle weiter abzusichern.",
+                "next_scene": "additional_security"
+            }
+        ]
+    },
+    "conceal_identities": {
+        "description": "Du entwickelst Strategien, um die Identitäten der Mitglieder zu verschleiern. Diese Maßnahme schützt die Mitglieder vor Verfolgung und ermöglicht es ihnen, weiterhin aktiv zu bleiben.",
+        "choices": [
+            {
+                "text": "Implementiere weitere Sicherheitsprotokolle.",
+                "next_scene": "more_security_protocols"
+            },
+            {
+                "text": "Beginne mit verdeckten Operationen, um die rechte Bewegung zu unterminieren.",
+                "next_scene": "covert_operations"
+            }
+        ]
+    },
+    "media_campaign_cooperation": {
+        "description": "Du entscheidest dich, eine Medienkampagne in Kooperation mit anderen Bewegungen zu starten. Diese Kampagne hat eine weitreichende Wirkung und mobilisiert eine breite Unterstützung gegen die rechte Bewegung.",
+        "choices": [
+            {
+                "text": "Nutze die Medienpräsenz, um politische Forderungen zu stellen.",
+                "next_scene": "political_demands"
+            },
+            {
+                "text": "Baue das Netzwerk mit weiteren Organisationen aus, um die Bewegung zu stärken.",
+                "next_scene": "expand_network"
+            }
+        ]
+    },
+    "target_key_figures": {
+        "description": "Du fokussierst deine Bemühungen auf Angriffe gegen die Schlüsselfiguren der rechten Bewegung. Diese Aktionen schwächen die rechte Bewegung erheblich, führen jedoch zu erhöhter Gewalt.",
+        "choices": [
+            {
+                "text": "Führe weitere gezielte Angriffe durch.",
+                "next_scene": "more_targeted_attacks"
+            },
+            {
+                "text": "Ziehe dich zurück und konsolidiere die Erfolge.",
+                "next_scene": "consolidate_victories"
+            }
+        ]
+    },
+    "fund_peaceful_protests": {
+        "description": "Du entscheidest dich, die Gelder in friedliche Demonstrationen und Aufklärungskampagnen zu investieren. Dies stärkt das öffentliche Bild der Bewegung und zieht weitere Unterstützer an.",
+        "choices": [
+            {
+                "text": "Organisiere eine große Demonstration in der Hauptstadt, um den Erfolg zu zeigen.",
+                "next_scene": "larger_protest"
+            },
+            {
+                "text": "Nutze die Mittel, um Bildungsprogramme zu fördern, die über die Gefahr der rechten Ideologie aufklären.",
+                "next_scene": "education_programs"
+            }
+        ]
+    },
+    "information_campaign": {
+        "description": "Du entscheidest dich, eine Kampagne zu starten, um die Rechte durch gezielte Informationsverbreitung zu diskreditieren. Die Kampagne gewinnt an Fahrt, und immer mehr Menschen erkennen die wahren Absichten der rechten Bewegung.",
+        "choices": [
+            {
+                "text": "Setze auf eine breite Medienkampagne, um die Bewegung weiter zu schwächen.",
+                "next_scene": "media_campaign_cooperation"
+            },
+            {
+                "text": "Fokussiere dich auf gezielte Angriffe auf Schlüsselpersonen der rechten Bewegung.",
+                "next_scene": "target_key_figures"
+            }
+        ]
+    },
+    "nationwide_campaign": {
+        "description": "Du startest eine landesweite Kampagne, die in jeder großen Stadt gleichzeitig stattfindet. Die Bewegung wächst schnell und gewinnt an Stärke.",
+        "choices": [
+            {
+                "text": "Nutze die nationale Präsenz, um Druck auf die Regierung auszuüben.",
+                "next_scene": "government_pressure"
+            },
+            {
+                "text": "Organisiere landesweite Streiks, um die rechte Bewegung weiter zu destabilisieren.",
+                "next_scene": "national_strikes"
+            }
+        ]
+    },
+    "develop_safety_strategies": {
+        "description": "Du arbeitest daran, umfassende Sicherheitsstrategien für die Bewegung zu entwickeln. Diese Strategien schützen die Mitglieder der Bewegung und ermöglichen es ihnen, effektiv zu handeln.",
+        "choices": [
+            {
+                "text": "Setze auf den Aufbau sicherer Kommunikationskanäle.",
+                "next_scene": "secure_communications"
+            },
+            {
+                "text": "Entwickle Notfallpläne für mögliche Angriffe der rechten Bewegung.",
+                "next_scene": "emergency_plans"
+            }
+        ]
+    },
+    "coordinated_actions": {
+        "description": "Du organisierst koordinierte Aktionen in mehreren Städten gleichzeitig. Diese Aktionen führen zu einer Welle der Unterstützung in der Bevölkerung.",
+        "choices": [
+            {
+                "text": "Plane weitere koordinierte Aktionen, um die Bewegung weiter zu stärken.",
+                "next_scene": "more_coordinated_actions"
+            },
+            {
+                "text": "Konzentriere dich darauf, die erzielten Erfolge zu konsolidieren.",
+                "next_scene": "consolidate_success"
+            }
+        ]
+    },
+    "fund_covert_operations": {
+        "description": "Du entscheidest dich, die Gelder in verdeckte Operationen zu investieren, um die rechte Bewegung zu unterminieren. Diese Strategie ist riskant, führt aber zu bedeutenden Erfolgen gegen die rechte Führung.",
+        "choices": [
+            {
+                "text": "Fokussiere dich auf die Sabotage ihrer Kommunikationsmittel.",
+                "next_scene": "sabotage_communications"
+            },
+            {
+                "text": "Setze auf Angriffe auf die finanziellen Unterstützer der rechten Bewegung.",
+                "next_scene": "attack_financial_backers"
+            }
+        ]
+    },
+    "hide_and_plan": {
+        "description": "Du und deine Gruppe versteckt euch, um dem Zorn der Rechten zu entgehen. Während ihr euch versteckt, plant ihr eure nächsten Schritte sorgfältig. Ihr entscheidet euch, die rechte Bewegung durch gezielte Aktionen zu schwächen.",
+        "choices": [
+            {
+                "text": "Plane einen Angriff auf die Führung der rechten Bewegung.",
+                "next_scene": "attack_leadership"
+            },
+            {
+                "text": "Fokussiere dich auf die Verbreitung von Informationen, um die Rechte zu diskreditieren.",
+                "next_scene": "information_campaign"
+            }
+        ]
+    },
+    "expose_right": {
+        "description": "Du stellst dich der Rechten und versuchst, ihre Pläne öffentlich zu entlarven. Du organisierst eine Pressekonferenz und legst Beweise für ihre illegalen Aktivitäten vor. Die Enthüllungen schlagen hohe Wellen, aber die Rechte schlägt hart zurück.",
+        "choices": [
+            {
+                "text": "Setze die Enthüllungen fort und bringe weitere Informationen an die Öffentlichkeit.",
+                "next_scene": "continue_exposure"
+            },
+            {
+                "text": "Konzentriere dich darauf, die Bewegung zu schützen und das Risiko zu minimieren.",
+                "next_scene": "risk_management"
+            }
+        ]
+    },
+    "online_debate": {
+        "description": "Du organisierst eine Online-Debatte mit einem prominenten Vertreter der Rechten. Die Debatte wird live gestreamt und zieht ein großes Publikum an. Du bereitest dich gut vor und widerlegst seine Argumente souverän. Die Öffentlichkeit beginnt, die rechte Ideologie in Frage zu stellen.",
+        "choices": [
+            {
+                "text": "Lade weitere prominente Vertreter ein, um die Diskussion zu erweitern.",
+                "next_scene": "expand_debate"
+            },
+            {
+                "text": "Nutze die Debatte, um eine Petition zu starten und politische Maßnahmen zu fordern.",
+                "next_scene": "start_petition"
+            }
+        ]
+    },
+    "mediate_groups": {
+        "description": "Du entscheidest dich, zwischen den unterschiedlichen Gruppen zu vermitteln, um eine breite Allianz zu schmieden. Nach harten Verhandlungen gelingt es dir, eine starke Koalition zu bilden.",
+        "choices": [
+            {
+                "text": "Startet eine landesweite Kampagne, um den Widerstand zu verbreiten.",
+                "next_scene": "nationwide_campaign"
+            },
+            {
+                "text": "Nutzt die Allianz, um die rechte Bewegung direkt anzugreifen.",
+                "next_scene": "direct_attack"
+            }
+        ]
+    },
+    "focus_on_strong_groups": {
+        "description": "Du konzentrierst dich auf die stärksten Gruppen, um eine effektive Widerstandsbewegung zu bilden. Dies führt jedoch zu Spannungen mit den schwächeren Gruppen, die sich ausgeschlossen fühlen.",
+        "choices": [
+            {
+                "text": "Versuche, die Spannungen mit den schwächeren Gruppen zu lösen.",
+                "next_scene": "resolve_tensions"
+            },
+            {
+                "text": "Ignoriere die Spannungen und setze auf eine starke, aber kleine Gruppe.",
+                "next_scene": "small_strong_group"
+            }
+        ]
+    },
+    "larger_protest": {
+        "description": "Du organisierst eine große Demonstration in der Hauptstadt, um die Aufmerksamkeit auf eure Sache zu lenken. Die Demonstration zieht Tausende von Teilnehmern an und wird in den Medien stark beachtet.",
+        "choices": [
+            {
+                "text": "--- Spiel Ende: Demonstration ---",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "education_programs": {
+        "description": "Du entscheidest dich, die Mittel zu nutzen, um Bildungsprogramme zu fördern, die über die Gefahren der rechten Ideologie aufklären. Diese Programme erreichen eine breite Zielgruppe und tragen dazu bei, die öffentliche Meinung zu verändern.",
+        "choices": [
+            {
+                "text": "--- Spiel Ende: Aufklärung ---",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "sabotage_communications": {
+        "description": "Du entscheidest dich, die Kommunikationsmittel der rechten Bewegung zu sabotieren. Diese Aktion stört ihre Organisation erheblich und schwächt ihre Fähigkeit, schnell zu reagieren.",
+        "choices": [
+            {
+                "text": "--- Spiel Ende: Sabotage Erfolg ---",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "attack_financial_backers": {
+        "description": "Du richtest deine Angriffe auf die finanziellen Unterstützer der rechten Bewegung. Diese Aktion destabilisiert ihre Finanzierung und zwingt sie, ihre Aktivitäten zu reduzieren.",
+        "choices": [
+            {
+                "text": "--- Spiel Ende: Finanzielle Sabotage ---",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "attack_leadership": {
+        "description": "Du planst einen gezielten Angriff auf die Führung der rechten Bewegung. Dies schwächt ihre Organisation erheblich, aber es führt auch zu erhöhter Gewaltbereitschaft auf ihrer Seite.",
+        "choices": [
+            {
+                "text": "Setze weitere Angriffe auf die Führung fort.",
+                "next_scene": "restart"
+            },
+            {
+                "text": "Ziehe dich zurück und beobachte die Reaktion der Rechten.",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "continue_exposure": {
+        "description": "Du entscheidest dich, weitere Informationen über die rechte Bewegung öffentlich zu machen. Dies führt zu wachsendem Druck auf die rechte Führung, aber auch zu verstärkten Gegenmaßnahmen.",
+        "choices": [
+            {
+                "text": "Veröffentliche alle gesammelten Informationen auf einmal.",
+                "next_scene": "restart"
+            },
+            {
+                "text": "Veröffentliche die Informationen schrittweise, um den Druck über einen längeren Zeitraum aufrechtzuerhalten.",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "risk_management": {
+        "description": "Du entscheidest dich, die Bewegung zu schützen und das Risiko zu minimieren. Dadurch handelst du vorsichtiger, aber es erlaubt dir, die Bewegung langfristig stabil zu halten.",
+        "choices": [
+            {
+                "text": "Baue sichere Kommunikationskanäle auf, um die Bewegung zu koordinieren.",
+                "next_scene": "secure_communications"
+            },
+            {
+                "text": "Entwickle Strategien, um die Sicherheit der Mitglieder zu gewährleisten.",
+                "next_scene": "develop_safety_strategies"
+            }
+        ]
+    },
+    "secure_communications": {
+        "description": "Du beginnst, sichere Kommunikationskanäle für die Bewegung aufzubauen. Diese Kanäle helfen, die Koordination und Planung der Aktionen zu verbessern und vor Überwachung zu schützen.",
+        "choices": [
+            {
+                "text": "Nutze die Kommunikationskanäle, um koordinierte Aktionen in mehreren Städten gleichzeitig zu starten.",
+                "next_scene": "coordinated_actions"
+            },
+            {
+                "text": "Verstärke die Sicherheit der Kanäle weiter, um zukünftige Angriffe zu verhindern.",
+                "next_scene": "enhance_security"
+            }
+        ]
+    },
+    "enhance_security": {
+        "description": "Du entscheidest dich, die Sicherheitsmaßnahmen der Bewegung weiter zu verstärken. Diese Maßnahmen schützen die Bewegung vor Überwachung und Angriffen.",
+        "choices": [
+            {
+                "text": "Setze auf den Schutz der Kommunikationskanäle.",
+                "next_scene": "protect_communications"
+            },
+            {
+                "text": "Entwickle Strategien, um die Identitäten der Mitglieder zu verschleiern.",
+                "next_scene": "conceal_identities"
+            }
+        ]
+    },
+    "coordinated_actions": {
+        "description": "Du organisierst koordinierte Aktionen in mehreren Städten gleichzeitig. Diese Aktionen führen zu einer Welle der Unterstützung in der Bevölkerung.",
+        "choices": [
+            {
+                "text": "Plane weitere koordinierte Aktionen, um die Bewegung weiter zu stärken.",
+                "next_scene": "more_coordinated_actions"
+            },
+            {
+                "text": "Konzentriere dich darauf, die erzielten Erfolge zu konsolidieren.",
+                "next_scene": "consolidate_success"
+            }
+        ]
+    },
+    "expand_debate": {
+        "description": "Du lädst weitere prominente Vertreter ein, um die Diskussion zu erweitern. Die Debatte erreicht ein noch größeres Publikum und gewinnt an Tiefe und Einfluss.",
+        "choices": [
+            {
+                "text": "Organisiere eine Serie von Debatten, um die Öffentlichkeit weiter zu sensibilisieren.",
+                "next_scene": "debate_series"
+            },
+            {
+                "text": "Nutze die Debatte, um konkrete politische Forderungen zu stellen.",
+                "next_scene": "political_demands"
+            }
+        ]
+    },
+    "debate_series": {
+        "description": "Du organisierst eine Serie von Debatten, um die Öffentlichkeit weiter zu sensibilisieren. Diese Debatten ziehen große Aufmerksamkeit auf sich und führen zu einer wachsenden Unterstützung für eure Bewegung.",
+        "choices": [
+            {
+                "text": "Fokussiere die Debatten auf politische Forderungen.",
+                "next_scene": "political_demands"
+            },
+            {
+                "text": "Lade weitere prominente Redner ein, um die Diskussionen zu erweitern.",
+                "next_scene": "invite_speakers"
+            }
+        ]
+    },
+    "start_petition": {
+        "description": "Du nutzt die Debatte, um eine Petition zu starten und politische Maßnahmen zu fordern. Die Petition gewinnt schnell an Unterstützung und übt Druck auf die Regierung aus.",
+        "choices": [
+            {
+                "text": "Verwende die Unterschriften, um einen direkten Dialog mit der Regierung zu erzwingen.",
+                "next_scene": "dialog_with_government"
+            },
+            {
+                "text": "Organisiere eine Massenkundgebung, um die Unterstützung für die Petition zu demonstrieren.",
+                "next_scene": "mass_rally"
+            }
+        ]
+    },
+    "direct_attack": {
+        "description": "Du entscheidest dich, die rechte Bewegung direkt anzugreifen, indem du ihre wichtigsten Mitglieder und Infrastrukturen ins Visier nimmst. Dies führt zu massiven Unruhen und einer Eskalation des Konflikts.",
+        "choices": [
+            {
+                "text": "Führe weitere Angriffe durch, um die Rechten zu destabilisieren.",
+                "next_scene": "more_attacks"
+            },
+            {
+                "text": "Nutze die Unruhen, um eine breite Mobilisierung der Bevölkerung zu erreichen.",
+                "next_scene": "mobilize_population"
+            }
+        ]
+    },
+    "mobilize_population": {
+        "description": "Du entscheidest dich, die Bevölkerung in großem Maßstab zu mobilisieren, um die rechte Bewegung zu schwächen und die Unterstützung für eure Sache zu erhöhen. Die Mobilisierung führt zu einer Welle von Protesten und Aktionen im ganzen Land.",
+        "choices": [
+            {
+                "text": "Starte eine nationale Kampagne, um noch mehr Menschen zu erreichen.",
+                "next_scene": "national_campaign"
+            },
+            {
+                "text": "Konzentriere dich darauf, die mobilisierte Bevölkerung zu organisieren und zu koordinieren.",
+                "next_scene": "organize_and_coordinate"
+            }
+        ]
+    },
+    "national_campaign": {
+        "description": "Du startest eine nationale Kampagne, um die Bewegung noch weiter zu verbreiten und mehr Menschen zu mobilisieren. Die Kampagne hat großen Erfolg, und die Bewegung gewinnt stark an Einfluss.",
+        "choices": [
+            {
+                "text": "--- Spiel Ende: Nationale Bewegung ---",
+                "next_scene": "restart"
+            }
+        ]
+    },
+    "organize_and_coordinate": {
+        "description": "Du entscheidest dich, die mobilisierte Bevölkerung zu organisieren und zu koordinieren. Durch effiziente Organisation gelingt es dir, die Aktionen der Bewegung besser zu planen und durchzuführen.",
+        "choices": [
+            {
+                "text": "Setze auf lokale Organisationen, um eine breitere Basis zu schaffen.",
+                "next_scene": "local_organizations"
+            },
+            {
+                "text": "Entwickle landesweite Strukturen, um die Koordination zu verbessern.",
+                "next_scene": "national_structures"
+            }
+        ]
+    },
+    "resolve_tensions": {
+        "description": "Du arbeitest hart daran, die Spannungen zwischen den verschiedenen Gruppen in deiner Allianz zu lösen. Durch geschickte Verhandlungen und Kompromisse schaffst du es, die Einheit zu bewahren.",
+        "choices": [
+            {
+                "text": "Führe regelmäßige Treffen durch, um den Zusammenhalt der Allianz zu stärken.",
+                "next_scene": "regular_meetings"
+            },
+            {
+                "text": "Entwickle gemeinsame Ziele und Strategien, um die Allianz zu festigen.",
+                "next_scene": "common_goals"
+            }
+        ]
+    },
+    "small_strong_group": {
+        "description": "Du entscheidest dich, dich auf eine kleine, aber starke Gruppe zu konzentrieren. Diese Gruppe ist hocheffizient, aber die fehlende breite Unterstützung macht sie anfälliger für Gegenangriffe.",
+        "choices": [
+            {
+                "text": "Rekrutiere gezielt neue Mitglieder, um die Gruppe zu verstärken.",
+                "next_scene": "recruit_more_members"
+            },
+            {
+                "text": "Entwickle spezialisierte Taktiken, um die Effektivität der kleinen Gruppe zu maximieren.",
+                "next_scene": "special_tactics"
+            }
+        ]
+    },
+    "restart": {
+        "description": "Möchtest du das Spiel speichern oder erneut spielen? (speichern/ja/nein)",
+        "choices": [
+            {
+                "text": "speichern",
+                "next_scene": "save_game"
+            },
+            {
+                "text": "ja",
+                "next_scene": "start_game"
+            },
+            {
+                "text": "nein",
+                "next_scene": "end_game"
+            }
+        ]
     }
-    // Weitere Szenen folgen...
 }
+
