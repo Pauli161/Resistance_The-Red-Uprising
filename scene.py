@@ -1,7 +1,10 @@
-
 import time
 
 class Scene:
+    def __init__(self, description, choices):
+        self.description = description
+        self.choices = choices
+
     def show(self, state):
         # Szene Beschreibung
         print("\n" + self.description + "\n")
