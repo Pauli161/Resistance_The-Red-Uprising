@@ -1,0 +1,18 @@
+{
+    "intro": {
+        "description": "Es ist ein düsterer Tag in deiner Heimatstadt. Die Rechte hat immer mehr Macht gewonnen, und du weißt, dass du handeln musst.\n\nWas möchtest du tun?",
+        "choices": {
+            "1": "Gehe zu dem Treffen.",
+            "2": "Gehe nach Hause und denke darüber nach, was du tun solltest."
+        }
+    },
+    "meeting": {
+        "description": "Du betrittst einen kleinen, verlassenen Lagerraum. Ein paar Dutzend Leute haben sich hier versammelt, alle entschlossen, gegen die Rechte zu kämpfen.\n\nWas möchtest du tun?",
+        "choices": {
+            "1": "Schlage vor, eine friedliche Gegendemonstration zu organisieren.",
+            "2": "Schlage vor, die Kundgebung der Rechten zu sabotieren.",
+            "3": "Schlage vor, die Öffentlichkeit durch Medienarbeit und soziale Netzwerke zu mobilisieren."
+        }
+    }
+    // Weitere Szenen folgen...
+}
