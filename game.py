@@ -1,6 +1,8 @@
+import time
 import json
 from state import State
 from scene import Scene
+
 
 class Game:
     def __init__(self):
