@@ -27,7 +27,7 @@ Um das Spiel auf deinem lokalen Rechner auszuführen, folge diesen Schritten:
 3. **Führe das Spiel aus:**
 
    ```bash
-   python text_rpg.py
+   python main.py
    ```
 
    Das Spiel startet und du kannst beginnen, Entscheidungen zu treffen, die den Verlauf der Geschichte beeinflussen.
