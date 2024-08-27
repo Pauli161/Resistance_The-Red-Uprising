@@ -1,0 +1,95 @@
+Ja, wenn du den Fortschritt des Spielverlaufs anhand der Entscheidungen des Spielers anpassen möchtest, wäre es sinnvoll, jeder Szene (oder zumindest jeder Entscheidung) Werte für den "Antifaschismus"-Fortschritt und den "rechten" Fortschritt zuzuweisen. Diese Werte kannst du dann verwenden, um den Fortschritt des Spiels darzustellen.
+
+### Vorgehensweise:
+
+1. **Erweiterung der JSON-Struktur**:
+   - Du könntest deiner `scenes.json`-Datei zusätzliche Felder hinzufügen, um den Einfluss jeder Entscheidung auf die beiden Seiten zu beschreiben. Zum Beispiel:
+
+   ```json
+   {
+       "Intro": {
+           "description": "Es ist ein düsterer Tag in deiner Heimatstadt. Die Rechte hat immer mehr Macht gewonnen, und du weißt, dass du handeln musst. Deine Freunde haben dich kontaktiert. Sie wollen sich heute Abend treffen, um eine Protestaktion zu planen.",
+           "choices": [
+               {
+                   "text": "Gehe zu dem Treffen.",
+                   "next_scene": "Meeting",
+                   "antifascism_change": 10,
+                   "right_side_change": -10
+               },
+               {
+                   "text": "Gehe nach Hause und denke darüber nach, was du tun solltest.",
+                   "next_scene": "Home",
+                   "antifascism_change": -5,
+                   "right_side_change": 5
+               }
+           ]
+       }
+   }
+   ```
+
+   In diesem Beispiel beeinflusst jede Entscheidung den Antifaschismus- und den rechten Fortschritt in unterschiedlichem Maße.
+
+2. **Anpassung des Python-Codes**:
+   - Beim Verarbeiten der Entscheidungen kannst du die Werte für `antifascism_change` und `right_side_change` lesen und die entsprechenden Fortschrittsbalken aktualisieren.
+
+   Hier ist ein Beispiel, wie du diese Werte verwenden könntest:
+
+   ```python
+   class Scene:
+       def show(self, state):
+           print(self.description)
+           for index, choice in enumerate(self.choices, start=1):
+               print(f"{index}. {choice['text']}")
+
+           choice_input = input("\n> Deine Wahl: ").strip()
+
+           if choice_input.isdigit() and 1 <= int(choice_input) <= len(self.choices):
+               selected_choice = self.choices[int(choice_input) - 1]
+               next_scene = selected_choice["next_scene"]
+               
+               # Update progress based on the choice
+               state.update_progress(next_scene)
+               
+               # Adjust antifascism and right side scores
+               state.antifascism_progress += selected_choice.get("antifascism_change", 0)
+               state.right_side_progress += selected_choice.get("right_side_change", 0)
+
+               # Display progress (this is a simple textual representation)
+               print(f"\nAntifaschismus: {state.antifascism_progress}%")
+               print(f"Rechte Seite: {state.right_side_progress}%")
+           else:
+               print("Ungültige Wahl, bitte versuche es erneut.")
+               self.show(state)
+
+   class State:
+       def __init__(self):
+           self.progress = "Intro"
+           self.antifascism_progress = 50  # Startwert
+           self.right_side_progress = 50  # Startwert
+       
+       def update_progress(self, next_scene):
+           self.progress = next_scene
+   ```
+
+   - In diesem Beispiel wird der Fortschritt nach jeder Entscheidung aktualisiert und dem Spieler angezeigt.
+
+3. **Anpassung des Spielfortschritts**:
+   - Du kannst basierend auf den Fortschrittswerten den weiteren Spielverlauf beeinflussen. Beispielsweise könnten bestimmte Szenen nur verfügbar sein, wenn der Antifaschismus-Wert hoch genug ist oder die rechte Seite dominiert.
+
+   ```python
+   if state.antifascism_progress >= 80:
+       print("Die antifaschistische Bewegung wächst stark an!")
+   elif state.right_side_progress >= 80:
+       print("Die rechte Bewegung gewinnt die Oberhand...")
+   ```
+
+### Vorteile dieser Vorgehensweise:
+- **Dynamik**: Das Spiel fühlt sich dynamischer an, da die Entscheidungen des Spielers einen direkten Einfluss auf den Verlauf haben.
+- **Spannung**: Der Spieler ist ständig gefordert, da jede Entscheidung Auswirkungen hat, die im weiteren Verlauf spürbar werden.
+- **Wiederspielwert**: Mit verschiedenen möglichen Spielverläufen und Enden steigt der Anreiz, das Spiel mehrfach zu spielen und unterschiedliche Entscheidungen auszuprobieren.
+
+### Nachteile:
+- **Komplexität**: Die Spielentwicklung wird komplexer, da du sicherstellen musst, dass alle möglichen Fortschrittsverläufe sinnvoll sind und das Spiel in einem zufriedenstellenden Zustand endet.
+- **Balancing**: Es erfordert einiges an Feintuning, um sicherzustellen, dass das Spiel nicht zu leicht oder zu schwer wird, basierend auf den gewählten Fortschrittswerten.
+
+Indem du jeder Szene entsprechende Fortschrittswerte zuweist, kannst du das Spiel tiefgehender und immersiver gestalten.
