@@ -9,5 +9,6 @@ class State:
     def set_variable(self, key, value):
         self.variables[key] = value
 
-    def get_variable(self, key):
-        return self.variables.get(key, None)
+    def get_variable(self, key, default=None):
+        """Gibt den Wert für den Schlüssel zurück, wenn er existiert, andernfalls den Standardwert."""
+        return self.variables.get(key, default)
