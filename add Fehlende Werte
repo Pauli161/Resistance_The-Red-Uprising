@@ -1,0 +1,51 @@
+import json
+import os
+
+def get_valid_integer_input(prompt):
+    while True:
+        user_input = input(prompt)
+        if user_input.lower() == "esc":
+            return None
+        try:
+            return int(user_input)
+        except ValueError:
+            print("Bitte geben Sie eine gültige Zahl ein oder 'esc', um das Skript zu beenden.")
+
+def interactive_assignment(scenes):
+    for scene_name, scene_data in scenes.items():
+        print(f"\n--- Scene: {scene_name} ---")
+        print(f"Description: {scene_data['description']}\n")
+        for index, choice in enumerate(scene_data['choices'], start=1):
+            if 'antifascism_change' in choice and 'right_side_change' in choice:
+                print(f"  Choice {index}: {choice['text']} (Already set: Antifascism Change: {choice['antifascism_change']}, Right Side Change: {choice['right_side_change']})")
+            else:
+                print(f"  Choice {index}: {choice['text']}")
+                antifascism_change = get_valid_integer_input(f"    Antifascism Change for '{choice['text']}': ")
+                if antifascism_change is None:
+                    save_progress(scenes)
+                    return scenes  # Rückgabe und Beenden des Skripts
+                right_side_change = get_valid_integer_input(f"    Right Side Change for '{choice['text']}': ")
+                if right_side_change is None:
+                    save_progress(scenes)
+                    return scenes  # Rückgabe und Beenden des Skripts
+
+                choice['antifascism_change'] = antifascism_change
+                choice['right_side_change'] = right_side_change
+                save_progress(scenes)  # Speichert nach jeder Eingabe
+                print()  # Fügt eine Leerzeile für bessere Lesbarkeit hinzu
+    return scenes
+
+def save_progress(scenes):
+    json.dump(scenes, open(output_path, 'w', encoding='utf-8'), ensure_ascii=False, indent=4)
+    print(f"\nFortschritt gespeichert in '{output_path}'.")
+
+json_path = 'C:/Users/Bortu/GitHub/Resistance_The-Red-Uprising/Scenes/scenes.json'
+output_path = 'C:/Users/Bortu/GitHub/Resistance_The-Red-Uprising/Scenes/scenes_with_interactive.json'
+
+if os.path.exists(output_path):
+    scenes = json.load(open(output_path, 'r', encoding='utf-8'))
+else:
+    scenes = json.load(open(json_path, 'r', encoding='utf-8'))
+
+scenes = interactive_assignment(scenes)
+save_progress(scenes)  # Endgültiges Speichern der Datei
